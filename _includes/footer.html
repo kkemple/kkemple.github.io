@@ -1,0 +1,30 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+      <ul class="contact-list">
+        <li>
+          <span><i class="fa fa-envelope"></i> </span>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </li>
+        <li>
+          <span><i class="fa fa-github"></i> </span>
+          <a href="https://github.com/{{ site.github_username }}">
+            <span class="username">{{ site.github_username }}</span>
+          </a>
+        </li>
+        <li>
+          <span><i class="fa fa-twitter"></i> </span>
+          <a href="https://twitter.com/{{ site.twitter_username }}">
+            <span class="username">{{ site.twitter_username }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="text">{{ site.description }}</p>
+
+    <p class="copyright">Copyright &copy; {{ site.author_name }} 2014</p>
+
+  </div>
+
+</footer>

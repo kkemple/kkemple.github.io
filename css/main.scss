@@ -1,0 +1,51 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$header-font-family:    'Lato', sans-serif;
+$base-font-family:      'Raleway', sans-serif;
+$base-font-size:        16px;
+$small-font-size:       $base-font-size * 0.875;
+$base-line-height:      1.5;
+$spacing-unit:          30px;
+
+$text:                  #222;
+$default:               #34495e;
+$default-dark:          #2c3e50;
+$success:               #2ecc71;
+$info:                  #3498db;
+$warning:               #e67e22;
+$danger:                #e74c3c;
+$light-gray:            #ecf0f1;
+$dark-gray:             #7f8c8d;
+
+$on-palm:               600px;
+$on-laptop:             800px;
+
+
+
+// Using media queries with like this:
+// @include media-query($palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+    "base",
+    "layout",
+    "syntax-highlighting"
+;
