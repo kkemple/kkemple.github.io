@@ -5,9 +5,7 @@ date:   2014-09-30 17:31:14
 categories: github pages hosting blog jekyll
 ---
 
-While investigating better ways to maintain documentation I came across these articles, [Designing the Documentation for a Developer Product](http://blog.codeship.io/2014/09/11/designing-documentation-for-developer-products.html) by [Codeship](http://codeship.io), and [Creating Sustainable Documentation with Jekyll](https://sendgrid.com/blog/creating-sustainable-documentation-with-jekyll/) by [SendGrid](http://sendgrid.com).
-
-Although it looks like we will be implementing a different solution for documentation at work, the ease of this setup intruged me and I thought, "I could use this for my blog!", and a few hours later I had my site up.
+While investigating better ways to maintain documentation I came across these articles, [Designing the Documentation for a Developer Product](http://blog.codeship.io/2014/09/11/designing-documentation-for-developer-products.html) by [Codeship](http://codeship.io), and [Creating Sustainable Documentation with Jekyll](https://sendgrid.com/blog/creating-sustainable-documentation-with-jekyll/) by [SendGrid](http://sendgrid.com). Although it looks like we will be implementing a different solution for documentation at work, the ease of this setup intruged me and I thought, "I could use this for my blog!", and a few hours later I had my site up.
 
 I couldn't believe I had gone this long without thinking to host my blog with Github pages and Jekyll. I have tried Wordpress and Ghost blogs and both got the job done, but the one thing that was always annoying about both was the hosting.
 
