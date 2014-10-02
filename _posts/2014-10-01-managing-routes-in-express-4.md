@@ -56,7 +56,7 @@ myApp/
     - models/
     - routes/
     - controllers/
-    -lib/
+    - lib/
 - lib/ => top level helper files, logger etc...
 - public/
 app.js
@@ -107,7 +107,7 @@ var routesRegex = /\/routes\/.+js$/;
 var routes = getFiles('core', routesRegex).concat(getFiles('plugins', routesRegex));
 
 routes.forEach(function(route) {
-   app.use('/', require(routes));
+   app.use('/', require(route));
 });
 
 var server = app.listen(3000, function() {
@@ -168,7 +168,7 @@ myApp/
     - models/
     - routes/
     - controllers/
-    -lib/
+    - lib/
 - lib/
 - public/
 app.js
@@ -196,13 +196,13 @@ var apiRegex = /\/api\/.+js$/;
 var routes = getFiles('core', routesRegex).concat(getFiles('plugins', routesRegex));
 
 routes.forEach(function(route) {
-   app.use('/', require(routes));
+   app.use('/', require(route));
 });
 
 var apiRoutes = getFiles('core', routesRegex).concat(getFiles('plugins', routesRegex));
 
 apiRoutes.forEach(function(route) {
-   app.use('/api/', require(routes));
+   app.use('/api/', require(route));
 });
 
 var server = app.listen(3000, function() {
