@@ -7,11 +7,13 @@
     <meta name="description" content="{{ site.description }}">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Raleway:700,400' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ "/css/animate.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/css/requires/prism.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/css/requires/font-awesome.min.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/css/requires/animate.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
+    <script src="{{ "/js/requires/prism.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/requires/jquery-1.11.1.min.js" | prepend: site.baseurl }}"></script>
     <script scr="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
 </head>
