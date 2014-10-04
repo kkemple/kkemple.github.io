@@ -38,7 +38,7 @@ While this is technically invalid JSON, once it is parsed by Jekyll, it will lea
 {% highlight javascript %}
 {
     "id": "1",
-    "url": "http://kkemple.github.io/adding-site-search-with-lunr",
+    "url": "/adding-site-search-with-lunr",
     "title": "Setting Up Client-side Search for a Jekyll site with lunr and Backbone",
     "excerpt": " So I just recently made the move to Jekyll and Github Pages for hosting my blog. It is absolutely fantastic, but like anything else in the development world, it’s not perfect right out of the box. One of the biggest issues is no search. Since the site is static and there is no database backing the content, we are left to create a fully client-side solution. This is where lunr.js steps in to save the day. Between that and Backbone.js we can set up a nice search for our blog.",
     "categories": "github, blog, jekyll, lunr, search, static search"
