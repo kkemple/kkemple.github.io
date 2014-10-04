@@ -6,7 +6,7 @@
  */
 
 code[class*="language-"],
-pre[class*="language-"] {
+pre {
 	color: black;
 	font-family: Consolas, Monaco, 'Andale Mono', monospace;
 	direction: ltr;
@@ -27,7 +27,7 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre {
 	position: relative;
 	margin: .5em 0;
 	/*-webkit-box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
@@ -59,7 +59,7 @@ code[class*="language"] {
 
 /* Margin bottom to accomodate shadow */
 :not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+pre {
 	background-color: #fdfdfd;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -80,8 +80,8 @@ pre[class*="language-"] {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-pre[class*="language-"]:before,
-pre[class*="language-"]:after {
+pre:before,
+pre:after {
 	/*content: '';
 	z-index: -2;
 	display: block;
@@ -101,7 +101,7 @@ pre[class*="language-"]:after {
 }
 
 :not(pre) > code[class*="language-"]:after,
-pre[class*="language-"]:after {
+pre:after {
 	/*right: 0.75em;
 	left: auto;
 	-webkit-transform: rotate(2deg);
@@ -183,8 +183,8 @@ pre[class*="language-"]:after {
 }
 
 @media screen and (max-width: 767px) {
-	pre[class*="language-"]:before,
-	pre[class*="language-"]:after {
+	pre:before,
+	pre:after {
 		bottom: 14px;
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
@@ -201,15 +201,15 @@ pre[class*="language-"]:after {
 }
 
 /* Plugin styles: Line Numbers */
-pre[class*="language-"].line-numbers {
+pre.line-numbers {
 	padding-left: 0;
 }
 
-pre[class*="language-"].line-numbers code {
+pre.line-numbers code {
 	padding-left: 3.8em;
 }
 
-pre[class*="language-"].line-numbers .line-numbers-rows {
+pre.line-numbers .line-numbers-rows {
 	left: 0;
 }
 

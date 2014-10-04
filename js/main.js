@@ -14,24 +14,22 @@
                 this.ref('id')
             });
         },
-        parse: function(data) {
+        parse: function(posts) {
             var self = this;
 
-            _(data.posts).each(function(post) {
-                post.id = parseInt(post.id, 10);
-
+            _(posts).each(function(post) {
                 self.index.add(post);
 
                 post.categories = post.categories.replace(/\s+/g, '').split(',');
             });
 
-            return data.posts;
+            return posts;
         },
         filter: function(term) {
             var self = this;
 
             var results = _(this.index.search(term)).map(function(r) {
-                return self.get(parseInt(r.ref, 10));
+                return self.get(r.ref);
             });
 
             return results;
