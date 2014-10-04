@@ -65,7 +65,7 @@ In `posts.json`:
 
 Even though our Front Matter for this file is empty, Jekyll will still parse it and build out our posts JSON for us. The reason for using a JSON file is so we can load the data async, this could potentially get to be a large file and if we just built the loop in our default layout or in a JS file, the page would be held up until it loaded. Loading it async ensures the rest of site loads before the search data is loaded. This maybe could eventually be broken up by categories etc. but for now it should suffice as a single JSON file.
 
-### Implementing Backbone and Lunr Functionality
+### Implementing the Backbone and Lunr Functionality
 
 First let's build our `Posts` collection:
 
