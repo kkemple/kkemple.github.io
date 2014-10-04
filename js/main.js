@@ -62,19 +62,23 @@
     };
 
     $(function() {
+        var $siteSearch = $('.site-search'),
+            $showSearch = $('.show-search'),
+            $closeSearch = $('.close-search');
+
         blog.$search = $('#search-container').scotchPanel({
             containerSelector: 'body',
             direction: 'right',
             duration: 300,
             transistion: 'ease',
-            clickSelector: '.show-search',
             distanceX: '300px',
             enableEscapeKey: true
         });
 
-        $('.close-search').on('click', function(e) { e.preventDefault(); blog.$search.close(); });
+        $showSearch.on('click', function(e) { e.preventDefault(); $siteSearch.val(''); blog.$search.toggle(); });
+        $closeSearch.on('click', function(e) { e.preventDefault(); $siteSearch.val(''); blog.$search.close(); });
 
-        $('.site-search').on('keyup change', function(e) {
+        $siteSearch.on('keyup change', function(e) {
             clearTimeout(TIMEOUT_ID);
             var $search = $(this);
 
