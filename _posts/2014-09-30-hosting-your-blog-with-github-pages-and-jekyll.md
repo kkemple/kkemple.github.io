@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Hosting Your Blog with Github Pages and Jekyll"
-date:   2014-09-30 17:31:14
 categories: [github, hosting, blog, jekyll]
 ---
 

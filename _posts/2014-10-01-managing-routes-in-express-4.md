@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Managing Routes in ExpressJS 4"
-date:   2014-10-01 17:31:14
 categories: [expressjs, architecture, routes]
 ---
 

@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Setting Up Client-side Search for a Jekyll site with Lunr and Backbone"
-date:   2014-10-02
 categories: [github, blog, jekyll, lunr, search, static search]
 ---
 
