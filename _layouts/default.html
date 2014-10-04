@@ -7,11 +7,33 @@
 
     {% include header.html %}
 
-    <div class="page-content">
+    <section class="page-content">
       <div class="wrapper">
         {{ content }}
       </div>
-    </div>
+    </section>
+
+    <section id="search-container">
+      <div>
+        <p class="note">Press Esc key to close.<a href="#" class="close-search pull-right"><i class="fa fa-times"></i> Close</a></p>
+        <input type="search" class="site-search" placeholder="Search...">
+        <div class="results">
+
+        </div>
+      </div>
+    </section>
+
+    <script type="text/template" id="search-result">
+      <div class="result">
+        <h3><a href="<%= url %>"><%= title %></a></h3>
+        <p><%= excerpt.substr(0, 120) + '...' %></p>
+        <div class="categories">
+          <% for (var i = 0; i < categories.length; i++) { %>
+              <span class="category pill"><%= categories[i] %></span>
+          <% } %>
+        </div>
+      </div>
+    </script>
 
     {% include footer.html %}
   </body>

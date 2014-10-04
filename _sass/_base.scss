@@ -1,6 +1,11 @@
 /**
  * Reset some basic elements
  */
+
+* {
+    box-sizing: border-box;
+}
+
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -139,6 +144,13 @@ blockquote {
         padding-right: $spacing-unit / 2;
         padding-left: $spacing-unit / 2;
     }
+}
+
+.note {
+    margin-bottom: 3px;
+    display: block;
+    font-size: 10px;
+    color: $dark-gray;
 }
 
 

@@ -11,3 +11,4 @@ author_name: Kurtis Kemple
 # Build settings
 markdown: kramdown
 keep_files: ['.git']
+permalink: /:title

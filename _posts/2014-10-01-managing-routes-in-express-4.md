@@ -2,7 +2,7 @@
 layout: post
 title:  "Managing Routes in ExpressJS 4"
 date:   2014-10-01 17:31:14
-categories: node express routing routes architecture app-design
+categories: [expressjs, architecture, routes]
 ---
 
 Getting an [Express](http://expressjs.com/) app up and running is a very easy thing to do. It takes about 20 lines of code and you can then start a server and make requests. This is all good and well, but what happens when you have 100s of endpoints, a separate API, admin routes, and all of them need different middleware, validation, etc. Quickly you will find your code base starts to get complex and hard to work with. Let's cover a couple different ways to tackle this issue.
@@ -87,7 +87,7 @@ var server = app.listen(3000, function() {
 });
 {% endhighlight %}
 
-Now let's look at loading our routes, because we are using a component based application structure we can't just loop over a routes folder or include a single routes folder, since we will have routes in multiple directories we need a way to pull them in and add them to our app instance. We will use [shelljs](https://github.com/arturadib/shelljs) and regex for this.
+Now let's look at loading our routes, because we are using a component based application structure we can't just loop over a routes folder or require a single routes file. We will have routes in multiple directories, and we need a way to pull them in and add them to our app instance. We will use [shelljs](https://github.com/arturadib/shelljs) and regex for this.
 
 {% highlight javascript %}
 var express = require('express'),
@@ -141,7 +141,7 @@ router.route('/admin/current/user')
 module.exports = router;
 {% endhighlight %}
 
-This is gives us a lot of freedom with how we structure our app and I wanted to use a component based architecture to show how easy Express makes it to add a router. Also to show how easy it is to extend something like this.
+This gives us a lot of freedom with how we structure our app and I wanted to use a component based architecture to show how easy Express makes it to add a router. Also to show how easy it is to extend something like this.
 
 Let's say later on down the line we decide to add an API to our application, now we may have a structure like this:
 
