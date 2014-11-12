@@ -118,7 +118,7 @@ A routes file might look like this:
 
 {% highlight javascript %}
 var express = require('express'),
-    router = new express.Router();
+    router = new express.Router(),
     controller = require('../controllers/user');
 
 router.use(function(req, res, next) {
