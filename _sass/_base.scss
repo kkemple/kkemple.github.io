@@ -159,7 +159,12 @@ blockquote {
     color: $dark-gray;
 }
 
-
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    display: inline-block;
+    margin-top: -0.25em;
+}
 
 /**
  * Clearfix

@@ -84,6 +84,12 @@
                 loadSearchResults(blog.posts.filter($search.val().trim()));
             }, 300);
         });
+
+        emojify.setConfig({
+            img_dir: '/img/emoji/'
+        });
+
+        emojify.run();
     });
 
 })(jQuery, _, Backbone, lunr);
