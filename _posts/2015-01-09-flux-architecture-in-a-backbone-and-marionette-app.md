@@ -45,7 +45,7 @@ var Marionette = require('backbone.marionette'),
     async = require('async'),
     Dispatcher;
 
-var Dispatcher = Marionette.Object.extend({
+Dispatcher = Marionette.Object.extend({
     initialize: function() {
         this.callbacks = [];
     },
