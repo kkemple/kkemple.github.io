@@ -4,7 +4,7 @@ title:  "Building A Marionette App with Flux Architecture"
 categories: [backbone, marionette, flux, react, mvc, architecture, events]
 ---
 
-Lately there has been a lot of talk about [Flux](https://facebook.github.io/flux/) and [React](http://facebook.github.io/react/). Rarely do hear about one without the other, and I have to say that it bothers me.
+Lately there has been a lot of talk about [Flux](https://facebook.github.io/flux/) and [React](http://facebook.github.io/react/). Rarely do you hear about one without the other, and I have to say that it bothers me.
 
 Flux is an architectural pattern, a way to structure your app. React is a declaritive view library (don't get me started on my thoughts about calling React a framework). Although they play nicely with each other, there really is no direct connection. I think Facebook allowed React to steal the spotlight from what I believe to be the more important of the two, Flux.
 
