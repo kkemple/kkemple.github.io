@@ -126,7 +126,7 @@ Not much to making a store with a collection, Backbone has provided us with the 
 > If we were to encounter an error we would want to pass that in to the callback, this way we can stop the series from completing. Also this would be where we want to handle logging the error. Whether through the console in dev mode, or over the service layer for production.
 
 
-### Create the View Layer
+### Creating the View Layer
 
 Now we need a way to render our todo data to the user. Since we are using a `Backbone.Collection` for our store, it seems to make sense to use a `Marionette.CollectionView` to render our store's data, but we want a smart list view so we can have the functionality to add todos, so we will use a `Marionette.CompositeView`.
 
