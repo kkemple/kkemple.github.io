@@ -51,8 +51,8 @@ Dispatcher = Marionette.Object.extend({
     },
     dispatch: function(evt) {
         var series = _(this.callbacks).map(function(fn) {
-            return function(cb) {
-                fn(evt, cb);
+            return function(next) {
+                fn(evt, next);
             };
         });
 
@@ -94,7 +94,7 @@ Todos = Backbone.Collection.extend({
     initialize: function() {
         dispatcher.register(this._processEvent.bind(this));
     },
-    _processEvent: function(evt, cb) {
+    _processEvent: function(evt, next) {
         switch (evt.type) {
             case 'TODO_CREATE':
                 this.create(evt.data);
@@ -113,7 +113,7 @@ Todos = Backbone.Collection.extend({
         }
 
         // for async series to continue
-        cb();
+        next();
     }
 });
 
