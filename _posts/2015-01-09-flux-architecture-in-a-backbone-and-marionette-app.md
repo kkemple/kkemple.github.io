@@ -227,7 +227,6 @@ Now that we can check for a `dispatcherEvents` hash in our collections we can ha
 
 var BaseCollection = require('./base.collection'),
     Todo = require('./todo'),
-    dispatcher = require('./dispatcher'),
     Todos;
 
 Todos = BaseCollection.extend({
