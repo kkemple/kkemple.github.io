@@ -176,12 +176,85 @@ Hopefully this helps you see that Flux/React is not some magical thing that will
 
 > Another thing to be aware of is that Flux/React is not an application solution. It does not provide you with all the features needed to create a client-side web app. Now this is not necessarily a bad thing, as it lets you pick the other pieces you need to build a fully featured app. With that said, it can be hard to tie all of those pieces together, that is why I find so much joy working with Marionette. It provides me with just enough to not have to build infrastucture, yet it is flexible enough to let me decide on architecture.
 
+
+
+
+
+### #Update
+
+In a comment below, jescalan, mentioned that the `_processEvent` method in the `Collection` above was a bit nasty. In my response I said that is in fact in a bit ugly, but only meant to be an example, and that honestly there was only a little you could do to clean it up. :-1: I was thinking in the context of still providing an example that would be a bit easier to understand for everyone, but by doing that I am really taking away from the power of Backbone and Marionette. They make it very easy to abstract away the mess. So to better answer his question about smoothing that part out. I would extend the `Collection` and abstract the entire checking process of the `evt.type` so we can add an object hash just like we do for `events` in our views.
+
+### Creating A Better Store
+
+The first thing we have to do is create our `Base Collection` that we will extend all of our application's collections.
+
+{% highlight javascript %}
+/* base.collection.js */
+
+'use strict';
+
+var Backbone = require('backbone'),
+    dispatcher = require('./dispatcher'),
+    BaseCollection;
+
+BaseCollection = Backbone.Collection.extend({
+    constructor: function() {
+        dispatcher.register(this._processEvent.bind(this));
+        Backbone.Collection.prototype.constructor.apply(this, arguments);
+    },
+    _processEvent: function(evt, next) {
+        if (this.dispatcherEvents && this.dispatcherEvents[evt.type]) {
+            this.dispatcherEvents[evt.type](evt);
+            this.trigger('change');
+        }
+
+        // for async series to continue
+        next();
+    }
+});
+
+module.exports = BaseCollection;
+{% endhighlight %}
+
+Now that we can check for a `dispatcherEvents` hash in our collections we can have a nice clean API for registering to `dispatcher` events. This would look something like this:
+
+### Using the Base Collection
+
+{% highlight javascript %}
+/* todos.js */
+
+'use strict';
+
+var BaseCollection = require('./base.collection'),
+    Todo = require('./todo'),
+    dispatcher = require('./dispatcher'),
+    Todos;
+
+Todos = BaseCollection.extend({
+    model: Todo,
+    dispatcherEvents: {
+        'TODO_CREATE': createTodo,
+        'TODO_UPDATE': updateTodo,
+        'TODO_DELETE': deleteTodo
+    },
+    createTodo: function(evt) {
+        this.create(evt.data);
+    },
+    updateTodo: function(evt) {
+        this.at(evt.id).set(evt.data).save();
+    },
+    deleteTodo: function(evt) {
+        this.at(evt.id).destroy();
+    }
+});
+
+module.exports = Todos;
+
+{% endhighlight %}
+
+As you can see, this is a much cleaner solution to handling the dispatcher events flowing through the application.
+
 Whether you :thumbsup: or :thumbsdown: this post, I would love to hear your opinion!
-
-
-
-
-
 
 
 
