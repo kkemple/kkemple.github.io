@@ -52,7 +52,8 @@ Dispatcher = Marionette.Object.extend({
     dispatch: function(evt) {
         var series = _(this.callbacks).map(function(fn) {
             return function(next) {
-                fn(evt, next);
+                var err = fn(evt);
+                next(err ? err : null);
             };
         });
 
@@ -111,9 +112,6 @@ Todos = Backbone.Collection.extend({
                 this.trigger('change');
                 break;
         }
-
-        // for async series to continue
-        next();
     }
 });
 
@@ -121,9 +119,9 @@ module.exports = Todos;
 
 {% endhighlight %}
 
-Not much to making a store with a collection, Backbone has provided us with the functionality needed to make this work with very little effort. :cake: The important parts to notice are 1) we only do any work if `evt.type` is one that our collection cares about, and 2) that we always call the callback so that `async.series` can continue to process the registered callbacks.
+Not much to making a store with a collection, Backbone has provided us with the functionality needed to make this work with very little effort. :cake: The important thing to notice is we only do any work if `evt.type` is one that our collection cares about.
 
-> If we were to encounter an error we would want to pass that in to the callback, this way we can stop the series from completing. Also this would be where we want to handle logging the error. Whether through the console in dev mode, or over the service layer for production.
+> If we were to encounter an error we would want to return that error, this way we can stop the series from completing. Also this would be where we want to handle logging the error. Whether through the console in dev mode, or over the service layer for production.
 
 
 ### Creating the View Layer
@@ -202,14 +200,12 @@ BaseCollection = Backbone.Collection.extend({
         dispatcher.register(this._processEvent.bind(this));
         Backbone.Collection.prototype.constructor.apply(this, arguments);
     },
-    _processEvent: function(evt, next) {
+    _processEvent: function(evt) {
         if (this.dispatcherEvents && this.dispatcherEvents[evt.type]) {
-            this.dispatcherEvents[evt.type](evt);
-            this.trigger('change');
+            var err = this.dispatcherEvents[evt.type](evt);
+            if (!err) this.trigger('change');
+            if (err) return err;
         }
-
-        // for async series to continue
-        next();
     }
 });
 
